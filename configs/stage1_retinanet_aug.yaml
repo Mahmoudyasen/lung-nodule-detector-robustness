@@ -1,0 +1,39 @@
+# Stage 1 — RetinaNet 3D on LUNA16 (S3 gate config; S5 reuses it unchanged, S4 adds augment.dose_kernel=true)
+# Faithful to the MONAI LUNA16 detection tutorial, permuted to our (z,y,x) axis order.
+data:
+  patch_size: [80, 192, 192]      # (z,y,x) voxels at 1.25 x 0.703 x 0.703 mm = 100 x 135 x 135 mm; tutorial [192,192,80]
+  pos_frac: 0.7                   # >= 2/3 of patches contain a nodule (positive-biased sampling)
+  samples_per_scan: 2             # patches per training scan per epoch -> ~710 scans x 2 = 1420 patches = 355 iters / epoch
+  zoom_p: 0.3
+model:
+  backbone: resnet50
+  returned_layers: [1, 2]
+  conv1_t_stride: [1, 2, 2]
+  base_anchor_shapes: [[4, 6, 6], [5, 8, 8], [6, 10, 10], [8, 16, 16], [12, 24, 24]]
+  atss_num_candidates: 4
+  hns_batch_size_per_image: 64
+  hns_positive_fraction: 0.3
+  hns_pool_size: 20
+  hns_min_neg: 16
+  score_thresh: 0.02              # low on purpose: tuned for recall, stage 2 removes the rest
+  nms_thresh: 0.22
+  detections_per_img: 300
+  topk_candidates_per_level: 1000
+train:
+  optimizer: sgd                  # tutorial recipe (SGD 1e-2, nesterov) — the gate reproduces the tutorial; adamw also supported
+  lr: 0.01
+  weight_decay: 3.0e-5
+  warmup_iters: 1000
+  epochs: 200                     # 200 x 355 iters x 0.86 s ~ 17 h + validation ~ 21 h on the 3090 (300 epochs = tutorial, ~31 h)
+  batch_size: 4
+  amp: true
+  grad_clip: 10.0
+  workers: 10
+  val_every: 10                   # full sliding-window FROC on the val subset (89 scans) every 10 epochs
+infer:
+  roi_size: [80, 192, 192]
+  overlap: 0.25
+  sw_batch_size: 2
+augment:
+  dose_kernel: true               # S4: dose + kernel augmentation ON (S5 reuses this config unchanged)
+  dose_kernel_params: {p_noise: 0.5, p_kernel: 0.5, sigma_hu: [10.0, 60.0]}

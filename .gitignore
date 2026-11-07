@@ -1,0 +1,16 @@
+# code only: no data, no checkpoints, no caches
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.pt
+*.pth
+*.lz4
+*.npy
+*.nii*
+*.mhd
+*.raw
+*.dcm
+*.zip
+*.bak
+*.bak-*
+*.py.bak*

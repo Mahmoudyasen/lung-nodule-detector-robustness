@@ -1,0 +1,9 @@
+# Separate environment for projection-domain noise (ASTRA Toolbox, CUDA build) and DICOM header / TCIA download scripts.
+# Python 3.12. ASTRA is installed from conda-forge / the astra-toolbox channel:  conda install -c astra-toolbox -c conda-forge astra-toolbox=2.5.0
+numpy==2.5.4
+scipy==1.18.1
+pandas==3.1.0
+pydicom==3.0.2
+SimpleITK==2.5.6
+lz4==4.4.5
+openpyxl==3.1.5
