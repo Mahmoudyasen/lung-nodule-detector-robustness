@@ -1,4 +1,4 @@
-"""Stage-1 training (S3 fold-0 gate, S5 full 10-fold). Resumable; every run writes run_manifest.json (git hash,
+"""Detector training (S3 and S4, one run per fold). Resumable; every run writes run_manifest.json (git hash,
 config hash, env freeze) next to its checkpoints. Model selection by validation CPM (FROC), not loss.
 
     python -m lungcad.stage1.train --config configs/stage1_retinanet.yaml --fold 0 --seed 0

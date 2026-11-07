@@ -1,4 +1,4 @@
-"""P2 task 3: TCIA LDCT chest (Siemens) lesion table -> LUNA16-style reference folder for lungcad.eval.froc. `astra` env.
+"""TCIA LDCT chest (Siemens) lesion table -> LUNA16-style reference folder for lungcad.eval.froc. `astra` env.
 
     python scripts/19_tcia_annotations.py
 
@@ -14,7 +14,7 @@ Verification of the other 35 (scripts/19b_tcia_lesion_review.py + visual check, 
 soft-tissue run with the blob peak at the given slice; 15 subsolid lesions confirmed visually (ground glass in the circle). World (x, y, z) mm = ImagePositionPatient of that instance + pixel
 offsets along ImageOrientationPatient (= ITK/LUNA16 physical space). Diameter = 2 R x pixel spacing.
 Full and 10 % images share their geometry, so each lesion is written for both pseudo-series <case>_full / <case>_low.
-Output: <thesis-data>/tcia_ldct/eval/annotations/{annotations.csv, annotations_excluded.csv, seriesuids.csv} (the layout of
+Output: <data>/tcia_ldct/eval/annotations/{annotations.csv, annotations_excluded.csv, seriesuids.csv} (the layout of
 lungcad.eval.froc.load_reference) and eval/{lesions_checked.csv, montage_recovered.png}
 """
 from __future__ import annotations

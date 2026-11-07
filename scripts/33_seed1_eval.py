@@ -1,4 +1,4 @@
-"""P2 review R4 (docs/review_prespec.md): evaluate the seed-1 fold-0 models (S3 fold0/seed1_s3_noaug, S4
+"""Review experiment R4 (analysis_plans/review_prespec.md): evaluate the seed-1 fold-0 models (S3 fold0/seed1_s3_noaug, S4
 fold0/seed1_s4_aug) exactly like the seed-0 pair: all E1 conditions on the 89 fold-0 test scans (same per-scan seeds, so
 the perturbed inputs are identical to the seed-0 run) and the TCIA pairs (both doses). Projection noise and textures:
 scripts/27_texture_e1.py --seed1; in-plane blur: scripts/31_inplane_blur_e1.py --seed1.

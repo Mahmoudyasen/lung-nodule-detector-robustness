@@ -1,4 +1,4 @@
-"""P2 task 3: download the TCIA LDCT-and-Projection-data chest images, Siemens only (full + 10 % dose reconstructions).
+"""Download the TCIA LDCT-and-Projection-data chest images, Siemens only (full + 10 % dose reconstructions).
 
     python -I scripts/15_tcia_ldct_download.py [--out $LUNGCAD_NLST_HDD/tcia_ldct] [--limit N]
     python -I scripts/15_tcia_ldct_download.py --region L --cases 10    # abdomen (B30f) pairs, for the soft-kernel noise texture

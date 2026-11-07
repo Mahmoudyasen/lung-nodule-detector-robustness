@@ -1,11 +1,11 @@
-"""P2 task 3: TCIA LDCT chest (Siemens) full- and 10 %-dose images -> the shared S2 module, LUNA16 detector spacing.
+"""TCIA LDCT chest (Siemens) full- and 10 %-dose images -> the shared S2 module, LUNA16 detector spacing.
 
     python scripts/16_tcia_ldct_preprocess.py [--limit N]
 
 Per case: both series are loaded, their geometry is checked to be identical, the lung mask is computed ONCE on the
 full-dose scan (lungmask R231 on the CPU, classical fallback) and BOTH doses are cropped with it, so the two stored
 volumes are voxel-for-voxel aligned and the full-vs-low comparison is exactly paired. Output:
-<thesis-data>/tcia_ldct/preprocessed/<case>_{full,low}.{lz4,json}. Resumable (existing pairs are skipped).
+<data>/tcia_ldct/preprocessed/<case>_{full,low}.{lz4,json}. Resumable (existing pairs are skipped).
 """
 from __future__ import annotations
 import os
@@ -57,7 +57,7 @@ def process_case(case: str, inferer) -> str:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("--limit", type=int, default=0); a = ap.parse_args()
     from lungmask import LMInferer
-    inferer = LMInferer(modelname="R231", force_cpu=False, batch_size=16, tqdm_disable=True)   # GPU (2 Nov: all 50 redone on the GPU for speed; the earlier CPU run is kept in preprocessed_cpu_20261030 for comparison)
+    inferer = LMInferer(modelname="R231", force_cpu=False, batch_size=16, tqdm_disable=True)   # GPU
     PRE.mkdir(parents=True, exist_ok=True)
     cases = sorted(p.parent.parent.name for p in RAW.glob("C*/low/.done") if (p.parent.parent / "full" / ".done").exists())
     if a.limit:

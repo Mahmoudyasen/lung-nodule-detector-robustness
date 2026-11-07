@@ -1,4 +1,4 @@
-"""Paired bootstrap over scans for ΔCPM between two candidate sets on the SAME scans (WP0 plan §8).
+"""Paired bootstrap over scans for ΔCPM between two candidate sets on the SAME scans.
 
 Both models are scored on the same resampled scan list in every replicate, so the CI on the difference
 accounts for scan-level correlation. 'C beats B' is claimed only when the 95% CI of ΔCPM excludes 0.

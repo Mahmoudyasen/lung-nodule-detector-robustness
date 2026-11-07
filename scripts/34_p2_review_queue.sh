@@ -1,5 +1,5 @@
 #!/bin/bash
-# P2 review experiments (docs/review_prespec.md, hash in analysis/p2_review/PRESPEC_SHA256.txt), one job at a time:
+# Review experiments R1-R4 (analysis_plans/review_prespec.md, hash in analysis/p2_review/PRESPEC_SHA256.txt), one job at a time:
 #   1-2  NLST real-kernel pairs: convert (CPU), kernel calibration (CPU)                                  [R3]
 #   3    in-plane blur xy1.0 / xy1.5 / xycal, folds 0-3 (GPU)                                              [R1]
 #   4-5  texture levels x0.5 and x2 (CPU generation on the raw-data disk, $LUNGCAD_NLST_HDD), inference folds 0-3 (GPU)           [R2]
@@ -40,4 +40,4 @@ step "9a seed1 E1"               $PY -u scripts/33_seed1_eval.py e1
 step "9b seed1 proj + textures"  $PY -u scripts/27_texture_e1.py --seed1 --conds proj0.5 proj0.25 proj0.1 tex_nps tex_gauss tex_white
 step "9c seed1 in-plane blur"    $PY -u scripts/31_inplane_blur_e1.py --seed1
 step "9d seed1 TCIA"             $PY -u scripts/33_seed1_eval.py tcia
-echo "$(date '+%F %T') P2 review queue: all done" | tee -a "$LOG"
+echo "$(date '+%F %T') review queue: all done" | tee -a "$LOG"

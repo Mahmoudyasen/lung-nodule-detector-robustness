@@ -1,4 +1,4 @@
-"""P2 task 4, NLST descriptive analysis, as pre-specified (Second Paper Progress, Section 2, Revision 2, 1 Nov 2026):
+"""NLST descriptive analysis, as pre-specified (analysis plan, revision of 1 Nov 2026):
 S3 and S4 of fold 0 on the fixed stratified NLST sample (1,955 series, one per patient); candidates per scan and score
 distributions at the frozen threshold (0.02, max 100 per scan), by vendor x kernel class x round; S4 - S3 differences
 with paired bootstrap 95 % CIs over patients (10,000 replicates, seed 0, percentile). No P values. NLST has no nodule
@@ -9,7 +9,7 @@ Also reported, NOT pre-specified (labelled as such in the outputs): share of sca
 candidates per scan with score >= 0.5. Reference row: the same detectors on the 89 clean LUNA16 fold-0 test scans.
 
     python scripts/p2_nlst_analysis.py            # self-test, then analysis
-Output: <thesis-data>/work/wp0/analysis/p2_nlst/{per_series.csv, strata.csv, analysis.json}
+Output: <data>/work/wp0/analysis/p2_nlst/{per_series.csv, strata.csv, analysis.json}
 """
 from __future__ import annotations
 import json, pickle, sys

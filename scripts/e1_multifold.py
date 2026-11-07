@@ -1,10 +1,10 @@
-"""E1 on folds 0-3 (P2 strengthening, task 1): S3 (no dose aug) vs. S4 (dose+kernel aug), pooled over the four test splits.
+"""E1 (image-domain perturbations) on folds 0-3: S3 (no dose aug) vs. S4 (dose+kernel aug), pooled over the four test splits.
 
     python scripts/e1_multifold.py --folds 1 2 3     # inference per fold (resumable; white + correlated noise), then pooled scoring
     python scripts/e1_multifold.py --score           # pooled scoring only, from the saved per-fold candidates
 
 Inference reuses scripts/e1_dose_robustness.py unchanged (same perturbations, same per-scan seeds), pointed at each fold's
-models: S3 = fold{k}/seed0_s3_noaug (fold 0: the gate, seed0_s3_gate_noaug), S4 = fold{k}/seed0 (the frozen S5 detector).
+models: S3 = fold{k}/seed0_s3_noaug (fold 0: the gate, seed0_s3_gate_noaug), S4 = fold{k}/seed0 (the ten-fold S4 run).
 Fold 0's candidates already exist (analysis/e1_dose_fold0) and are not rerun. Pooled scoring concatenates the four folds'
 candidates and evaluates on the union of their test scans, so the paired bootstrap resamples over all ~355 scans.
 Analysis only: the frozen stage-1 files are read, never written.

@@ -1,4 +1,4 @@
-"""E5 — review of the nodules the frozen stage-1 detector missed (all 10 folds, own_candidates_all.csv).
+"""E5 — review of the nodules the S4 detector missed (all 10 folds, own_candidates_all.csv).
 
     python scripts/e5_miss_review.py
 

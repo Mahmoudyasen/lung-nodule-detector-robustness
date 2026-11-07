@@ -1,4 +1,4 @@
-"""Step 0 — local inventory of the NLST imaging collection (Research Programme v4 §2, Execution Guide v5 §2).
+"""Local inventory of the NLST imaging collection.
 
 Reads the IDC download manifest (metadata.csv), verifies every series directory on disk (file count and
 bytes), parses the series-description tokens
@@ -6,7 +6,7 @@ bytes), parses the series-description tokens
 and writes:
     nlst/meta/nlst_series_manifest.csv   one row per series, with on-disk status (+ a `convert_status` column)
     nlst/meta/nlst_primary_series.csv    ONE chosen axial series per (pid, screening round) — the conversion queue
-    nlst/meta/inventory_summary.json     the numbers for the thesis inventory table
+    nlst/meta/inventory_summary.json     summary counts of the inventory
     nlst/meta/inventory_tables.md        the same, as markdown tables
 Screening rounds come from the first token (0/1/2) and are cross-checked against the DICOM tag
 ClinicalTrialTimePointID (T0/T1/T2) during conversion.
@@ -19,7 +19,7 @@ import numpy as np, pandas as pd
 from .. import config as C
 
 SOFT_KERNELS = {"STANDARD", "B30f", "B31f", "B20f", "B10f", "B35f", "B40f", "FC10", "FC01", "FC02", "FC11", "FC30", "C", "B", "A", "T20s", "SOFT", "DETAIL", "T20f",
-                "B20s", "FC03"}   # added 2 Nov 2026 for 2 LUNA16 test scans, by the numbering already used here (Siemens B/T <= 40 soft; Toshiba FC0x/FC1x/FC3x soft, FC5x sharp)
+                "B20s", "FC03"}   # added for 2 LUNA16 test scans, by the numbering already used here (Siemens B/T <= 40 soft; Toshiba FC0x/FC1x/FC3x soft, FC5x sharp)
 SHARP_KERNELS = {"BONE", "LUNG", "B50f", "B60f", "B70f", "B80f", "B45f", "FC51", "FC50", "FC53", "FC52", "D", "E", "EXPERIMENTAL7", "EDGE", "T80f", "T80s", "B46f", "B50s"}
 
 
@@ -96,7 +96,7 @@ def main():
     prim["round"] = prim["round"].astype(int)
     prim.to_csv(C.NLST_META / "nlst_primary_series.csv", index=False)
 
-    # ---- summary numbers (the thesis inventory table)
+    # ---- summary numbers
     rounds_per_pid = ax.groupby("PatientID")["round"].nunique()
     prim_rounds = prim.groupby("PatientID")["round"].nunique()
     s = {

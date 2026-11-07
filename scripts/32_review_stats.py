@@ -1,4 +1,4 @@
-"""P2 review statistics, exactly as pre-specified in docs/review_prespec.md (hash in analysis/p2_review/PRESPEC_SHA256.txt).
+"""Review-experiment statistics, exactly as pre-specified in analysis_plans/review_prespec.md (hash in analysis/p2_review/PRESPEC_SHA256.txt).
 
     python scripts/32_review_stats.py inplane     # R1, family F5
     python scripts/32_review_stats.py levels      # R2, family F6

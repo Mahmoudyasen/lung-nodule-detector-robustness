@@ -1,4 +1,4 @@
-"""Projection-domain low-dose simulation by noise-only insertion (P2 task 2). Runs in the separate `astra` conda env.
+"""Projection-domain low-dose simulation by noise-only insertion. Runs in the separate `astra` conda env.
 
 Per axial slice (2D parallel-beam geometry: Siemens scanners rebin fan to parallel before FBP; ray spacing of the
 SOMATOM Definition at the isocentre, as in the TCIA LDCT data):

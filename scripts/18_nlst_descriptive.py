@@ -1,4 +1,4 @@
-"""P2 task 4: S3 vs. S4 detectors on real NLST screening scans (descriptive; NLST has no nodule coordinates).
+"""S3 vs. S4 detectors on real NLST screening scans (descriptive; NLST has no nodule coordinates).
 
     python scripts/18_nlst_descriptive.py --sample-only          # write the stratified sample, no GPU
     python scripts/18_nlst_descriptive.py [--folds 0] [--per-cell 100]
@@ -8,7 +8,7 @@ per cell, at most one series per patient, from usable_series() (exclusions appli
 conversions of scripts/20_nlst_native_sample.py (NOT the blurring 1.5 mm archive). Kernel and vendor are confounded
 in NLST (sharp kernels are mostly Toshiba), hence the stratification. Inference reuses e1_dose_robustness.load_model
 and the same sliding-window call; candidates are saved with world coordinates. Resumable.
-Output: <thesis-data>/work/wp0/analysis/p2_nlst/{sample.csv, nlst_candidates.csv, setup.json}.
+Output: <data>/work/wp0/analysis/p2_nlst/{sample.csv, nlst_candidates.csv, setup.json}.
 """
 from __future__ import annotations
 import argparse, json, pickle, sys, time

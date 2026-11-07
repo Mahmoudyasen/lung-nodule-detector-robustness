@@ -1,4 +1,4 @@
-"""P2 task 5 (noise-texture test, docs/texture_test_prespec.md): S3 vs S4 on the texture test scans
+"""Noise-texture test ( analysis_plans/texture_test_prespec.md): S3 vs S4 on the texture test scans
 (scripts/26_luna_texture.py), folds 0-3. Same inference code as scripts/23_projnoise_e1.py.
 
     python scripts/27_texture_e1.py --check          # known-answer: re-score one proj0.1 scan, compare with the stored candidates
@@ -6,7 +6,7 @@
 
 Output: analysis/p2_texture/fold<k>/e1_candidates_<cond>.csv (E1 format). Separate from the E1 folders on purpose, so
 that the existing final_* results are not touched. Resumable per (fold, condition).
-P2 review: --factor F --root R reads <R>/<cond>_x<F>/ (R2 level response) and writes analysis/p2_review/levels/;
+Review experiments: --factor F --root R reads <R>/<cond>_x<F>/ (R2 level response) and writes analysis/p2_review/levels/;
 --seed1 scores fold 0 with the seed-1 models (R4) into analysis/p2_review/seed1_texture/; --proj also scores proj0.5/0.25/0.1.
 """
 from __future__ import annotations

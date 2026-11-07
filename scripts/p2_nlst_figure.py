@@ -1,4 +1,4 @@
-"""P2 NLST figure: S4 - S3 differences (bootstrap 95 % CI over patients) by vendor x kernel class, from
+"""NLST figure: S4 - S3 differences (bootstrap 95 % CI over patients) by vendor x kernel class, from
 p2_nlst/strata.csv (scripts/p2_nlst_analysis.py). Left: candidates per scan; right: median candidate score.
 Output: p2_nlst/fig_nlst_forest.{pdf,png}"""
 from pathlib import Path

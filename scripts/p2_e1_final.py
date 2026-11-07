@@ -1,5 +1,5 @@
-"""P2 final E1 analysis over folds 0-3, exactly as pre-specified on 30 Oct 2026 (Second Paper Progress, Section 2;
-revised the same day, before any new result: projection-domain conditions removed with task 2).
+"""Final E1 analysis over folds 0-3 (families F1 and F2), exactly as pre-specified on 30 Oct 2026 (analysis plan for F1-F3;
+revised the same day, before any new result, and on 1 Nov, when the projection-domain conditions were added to F2).
 
     python scripts/p2_e1_final.py
 
@@ -22,7 +22,7 @@ from e1_dose_robustness import load_index, get_split
 FOLDS = [0, 1, 2, 3]
 F1 = ["soft1.0", "soft1.5", "soft1.0+noise60"]
 CNOISE = ["cnoise40_c1", "cnoise80_c1", "cnoise40_c2", "cnoise80_c2"]
-PROJ = ["proj0.5", "proj0.25", "proj0.1"]           # task 2 (scripts/23_projnoise_e1.py); in F2 since revision 2 (1 Nov)
+PROJ = ["proj0.5", "proj0.25", "proj0.1"]           # projection-domain noise (scripts/23_projnoise_e1.py); in F2 since 1 Nov
 F2 = CNOISE + PROJ                                  # 7 comparisons, Holm within the family
 
 

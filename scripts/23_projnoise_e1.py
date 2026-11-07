@@ -1,4 +1,4 @@
-"""P2 task 2: S3 vs. S4 on the projection-domain low-dose test scans (scripts/17_luna_projnoise.py), folds 0-3.
+"""S3 vs. S4 on the projection-domain low-dose test scans (scripts/17_luna_projnoise.py), folds 0-3.
 
     python scripts/23_projnoise_e1.py [--folds 0 1 2 3] [--doses 0.5 0.25 0.1]
 

@@ -1,4 +1,4 @@
-"""Calibrate and validate proj_noise.py on the TCIA full / 10 % pairs (P2 task 2). Runs in the `astra` env.
+"""Calibrate and validate proj_noise.py on the TCIA full / 10 % pairs. Runs in the `astra` env.
 
     python calibrate_tcia.py --cases C002 C004 C012 [--every 12] [--procs 6]
 

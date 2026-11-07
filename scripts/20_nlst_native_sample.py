@@ -1,9 +1,9 @@
-"""P2 task 4: convert the fixed NLST sample (analysis/p2_nlst/sample.csv) from raw DICOM at detector spacing.
+"""Convert the fixed NLST sample (analysis/p2_nlst/sample.csv) from raw DICOM at detector spacing.
 
     python scripts/20_nlst_native_sample.py [--procs 4]
 
 Why: the 1.5 mm NLST archive is coarser in-plane than the detector (0.70 mm), and blur is exactly what E1 shows the
-detector is sensitive to, so the archive must not be used for the P2 robustness check. lungcad.data.nlst.convert_native
+detector is sensitive to, so the archive must not be used for the robustness check. lungcad.data.nlst.convert_native
 runs the LUNA16 path (B-spline straight to detector spacing, same window) and reuses each series' validated archive
 lung box as the crop. Resumable; log in nlst/native_detector/convert.log.
 """

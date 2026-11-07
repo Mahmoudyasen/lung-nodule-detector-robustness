@@ -1,4 +1,4 @@
-"""P2 statistics, as pre-specified on 30 Oct 2026 (Second Paper Progress, Section 2):
+"""Statistics, as pre-specified on 30 Oct 2026 (analysis plan for F1-F3):
 paired bootstrap with a COMMON resample for all systems, 10,000 replicates, 95 % percentile CIs, two-sided
 P = 2 * min(P*(d <= 0), P*(d >= 0)) (floor 2 / n_boot), Holm correction within each primary family.
 

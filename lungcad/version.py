@@ -1,4 +1,4 @@
-"""Version tagging: every checkpoint / candidate list carries git hash + config hash (Execution Guide v5 §2)."""
+"""Version tagging: every checkpoint / candidate list carries git hash + config hash."""
 from __future__ import annotations
 import hashlib, json, subprocess, sys, platform
 from pathlib import Path

@@ -5,7 +5,7 @@ Axis convention: our volumes are (z, y, x) with spacing (1.25, 0.703, 0.703) mm,
 (x, y, z) in the tutorial is permuted to (z, y, x) here: conv1 stride (1,2,2), anchors (z,y,x).
 Anchor base shapes (voxels) cover the LUNA16 nodule diameter range 3–33 mm: [4,6,6],[5,8,8],[6,10,10],[8,16,16],[12,24,24]
 at the finest level, scaled x2 / x4 at the coarser levels.
-Losses: MONAI RetinaNetDetector defaults, as trained in S3-S5: binary cross-entropy on the anchors chosen by the
+Losses: MONAI RetinaNetDetector defaults, as used for S3 and S4: binary cross-entropy on the anchors chosen by the
 hard-negative sampler (classification) + Smooth-L1, beta 1/9, on encoded box offsets (regression). Matcher: ATSS.
 (Earlier text here said focal + GIoU; that was never what this code trained.)
 """

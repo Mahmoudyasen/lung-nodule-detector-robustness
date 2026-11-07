@@ -12,7 +12,7 @@ The sidecar stores the exact ITK world<->voxel transform of the *stored crop*, s
 coordinate (LUNA16 annotation, NLST nodule location, detector output) round-trips losslessly.
 
 Intensity normalisation to [0,1] happens at load time (normalize / normalize_torch) and is the
-same function for both domains — this is the guarantee Execution Guide v5 §S2 asks for.
+same function for both domains — so both domains are preprocessed identically.
 """
 from __future__ import annotations
 

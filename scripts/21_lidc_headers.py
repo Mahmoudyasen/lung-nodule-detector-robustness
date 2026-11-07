@@ -3,7 +3,7 @@ read from ONE original LIDC-IDRI DICOM image per series via TCIA's public NBIA A
 
     python -I scripts/21_lidc_headers.py        # `astra` env (pydicom); resumable; ~450 MB downloaded, nothing kept but the table
 
-Output: <thesis-data>/luna16/index/lidc_headers.csv. Used to stratify E1 and to choose the texture of inserted noise.
+Output: <data>/luna16/index/lidc_headers.csv. Used to stratify E1 and to choose the texture of inserted noise.
 """
 from __future__ import annotations
 import os

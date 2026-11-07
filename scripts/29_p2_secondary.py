@@ -1,4 +1,4 @@
-"""P2 secondary analyses added at review (2 Nov 2026, after the main results; labelled as such in the paper unless pre-specified).
+"""Secondary analyses (2 Nov 2026, after the main results; labelled as such in the paper unless pre-specified).
 
     python scripts/29_p2_secondary.py [--skip-levels]
 

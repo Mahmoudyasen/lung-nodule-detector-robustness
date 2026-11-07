@@ -1,4 +1,4 @@
-"""Visual review of the TCIA chest lesion positions (P2 task 3). `astra` env. Nothing is decided here: it renders.
+"""Visual review of the TCIA chest lesion positions. `astra` env. Nothing is decided here: it renders.
 
     python scripts/19b_tcia_lesion_review.py
 

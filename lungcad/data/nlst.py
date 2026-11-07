@@ -7,7 +7,7 @@ geometry, so stage1 inference and voxel_to_world work exactly as on LUNA16. NOTE
 than the detector (0.70 mm), so this path blurs every scan (down- then up-sampling); not used for
 the robustness measurements.
 convert_native(): the LUNA16 path for NLST: raw DICOM -> B-spline straight to detector spacing -> crop -> window, with
-the crop taken from the validated archive lung box (no new lung mask), stored in NATIVE. Use this for P2.
+the crop taken from the validated archive lung box (no new lung mask), stored in NATIVE. Used for the NLST analyses.
 """
 from __future__ import annotations
 from pathlib import Path

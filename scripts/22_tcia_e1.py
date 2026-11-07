@@ -1,4 +1,4 @@
-"""P2 task 3: S3 vs. S4 on TCIA LDCT chest, full vs. 10 % dose, four fold-model pairs; analysis as pre-specified.
+"""S3 vs. S4 on TCIA LDCT chest, full vs. 10 % dose, four fold-model pairs; analysis as pre-specified.
 
     python scripts/22_tcia_e1.py            # inference (resumable) then scoring
     python scripts/22_tcia_e1.py --score    # scoring only

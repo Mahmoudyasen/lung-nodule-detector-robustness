@@ -1,7 +1,7 @@
 #!/bin/bash
 # S4 (augmented arm), all ten folds. Run as:  CFG=configs/stage1_retinanet_aug.yaml bash scripts/05_s5_all_folds.sh
 # (the run manifests of the published models record augment.dose_kernel: true).
-# S5 — the ten-fold queue, back to back, unattended. Uses the committed S4 config (configs/stage1_retinanet_aug.yaml).
+# The ten folds run back to back, unattended.
 # Each fold: train -> score its test split. A fold counts as done only when done.json AND its test candidate file exist.
 # Safety: the queue STOPS at the first failure (so a half-trained fold can never be scored or frozen); relaunching the
 # same command resumes that fold from last.pt. If training finished but scoring did not, only the scoring is redone.

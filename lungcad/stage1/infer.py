@@ -1,10 +1,9 @@
-"""Stage-1 inference: sliding-window detection over whole preprocessed scans -> world-coordinate candidate CSV.
+"""Inference: sliding-window detection over whole preprocessed scans -> world-coordinate candidate CSV.
 
     python -m lungcad.stage1.infer --checkpoint work/wp0/stage1/fold0/seed0/best.pt --fold 0 --split test
 
 Outputs a version-tagged file  candidates_fold{k}_{split}_{run_tag}.csv  (+ .meta.json) with columns
-seriesuid, coordX, coordY, coordZ, probability, dz_mm, dy_mm, dx_mm — directly scorable by lungcad.eval.froc and
-directly usable as the "own-detector" candidate regime of stage 2.
+seriesuid, coordX, coordY, coordZ, probability, dz_mm, dy_mm, dx_mm — directly scorable by lungcad.eval.froc.
 """
 from __future__ import annotations
 import argparse, json, time

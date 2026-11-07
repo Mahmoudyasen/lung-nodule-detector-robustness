@@ -1,4 +1,4 @@
-# Stage 1 — RetinaNet 3D on LUNA16 (S3 gate config; S5 reuses it unchanged, S4 adds augment.dose_kernel=true)
+# RetinaNet 3D on LUNA16, S3 configuration (S4 differs only in augment.dose_kernel: true)
 # Faithful to the MONAI LUNA16 detection tutorial, permuted to our (z,y,x) axis order.
 data:
   patch_size: [80, 192, 192]      # (z,y,x) voxels at 1.25 x 0.703 x 0.703 mm = 100 x 135 x 135 mm; tutorial [192,192,80]
@@ -15,12 +15,12 @@ model:
   hns_positive_fraction: 0.3
   hns_pool_size: 20
   hns_min_neg: 16
-  score_thresh: 0.02              # low on purpose: tuned for recall, stage 2 removes the rest
+  score_thresh: 0.02              # low on purpose: keeps low-scoring candidates for the full FROC curve
   nms_thresh: 0.22
   detections_per_img: 300
   topk_candidates_per_level: 1000
 train:
-  optimizer: sgd                  # tutorial recipe (SGD 1e-2, nesterov) — the gate reproduces the tutorial; adamw also supported
+  optimizer: sgd                  # MONAI tutorial recipe (SGD 1e-2, nesterov); adamw also supported
   lr: 0.01
   weight_decay: 3.0e-5
   warmup_iters: 1000
@@ -35,5 +35,5 @@ infer:
   overlap: 0.25
   sw_batch_size: 2
 augment:
-  dose_kernel: false              # S4 switches this on; S3 gate runs without it
+  dose_kernel: false              # S3: off; S4 switches this on
   dose_kernel_params: {p_noise: 0.5, p_kernel: 0.5, sigma_hu: [10.0, 60.0]}

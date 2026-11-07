@@ -1,4 +1,4 @@
-"""NLST DICOM -> 1.5 mm isotropic, lung-cropped, int16, LZ4 (Execution Guide v5 §2 "preprocess NLST early").
+"""NLST DICOM -> 1.5 mm isotropic, lung-cropped, int16, LZ4.
 
 Pipeline per series:  worker (CPU): read DICOM, slice-uniformity check, header, B-spline resample to 1.5 mm
                       main (GPU):   lungmask R231 lung mask (plausibility 1-12 L), classical threshold fallback,

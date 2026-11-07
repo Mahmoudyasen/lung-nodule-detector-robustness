@@ -1,4 +1,4 @@
-"""P2 task 2: projection-domain low-dose versions of the LUNA16 test scans of folds 0-3. Runs in the `astra` env.
+"""Projection-domain low-dose versions of the LUNA16 test scans of folds 0-3. Runs in the `astra` env.
 
     python scripts/17_luna_projnoise.py --check                 # no-noise identity check on ALL selected scans
     python scripts/17_luna_projnoise.py [--folds 0 1 2 3] [--doses 0.5 0.25 0.1] [--procs 8] [--cuda]
@@ -7,7 +7,7 @@ Each ORIGINAL full-field .mhd gets noise-only insertion (scripts/proj_noise.py; 
 tube-current-modulation fit from calibrate_tcia.py --cases all),
 then goes through the unchanged S2 module with the same LUNA16 lung mask, so the stored crop is voxel-aligned with the
 clean archive (checked per scan). Seeds are fixed per (scan, dose). Output, same layout as the S2 archive:
-<thesis-data>/luna16/projnoise/a<dose>/subset<k>/<uid>.{lz4,json}. Resumable.
+<data>/luna16/projnoise/a<dose>/subset<k>/<uid>.{lz4,json}. Resumable.
 """
 from __future__ import annotations
 import argparse, json, sys, time, zlib
