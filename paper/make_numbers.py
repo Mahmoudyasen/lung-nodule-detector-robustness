@@ -212,7 +212,7 @@ cf = pf[pf.condition == "clean"].delta; put("clean.fmin", s3(cf.min())); put("cl
 lv = pd.read_csv(SEC / "noise_levels.csv"); lvm = lv.groupby("condition").added_sd_hu.median()
 for c_, v_ in lvm.items(): put(f"lvl.{c_}", f"{v_:.0f}")
 
-# ---------------------------------------------------------------- noise-texture test (scripts/25-28, pre-specified: analysis_plans/texture_test_prespec.md)
+# ---------------------------------------------------------------- noise-texture test (scripts/25-28, pre-specified: lung-nodule-detector-analysis-plans/plans_original/texture_test_prespec.md)
 TXD = AN / "p2_texture"
 tr = json.load(open(TXD / "texture_results.json")); tcx = pd.read_csv(TXD / "texture_contrasts.csv")
 put("tex.verdict", tr["verdict"])
@@ -236,7 +236,7 @@ for reg, lab in (("chest_B50f", "chest"), ("abdomen_B30f", "abd")):
     r = nps[reg]; put(f"tex.nps.{lab}.zc", f"{r['z_corr_adjacent_median']:.2f}"); put(f"tex.nps.{lab}.nsl", r["n_slices"])
     pk = r["f_center"][int(np.nanargmax([np.nan if x is None else x for x in r["nps"]]))]; put(f"tex.nps.{lab}.peak", f"{pk:.2f}")
 
-# ---------------------------------------------------------------- review experiments R1-R4 (pre-specified: analysis_plans/review_prespec.md)
+# ---------------------------------------------------------------- review experiments R1-R4 (pre-specified: lung-nodule-detector-analysis-plans/plans_original/review_prespec.md)
 RV = AN / "p2_review"
 sys.path.insert(0, str(ROOT / "scripts")); from e1_dose_robustness import load_index as _li, get_split as _gs
 put("luna.nscan.f0", len(_gs(_li(), 0)["test"]))
@@ -428,7 +428,7 @@ L.append("\\midrule\n")
 for kind, lab in (("F4_nps-gauss", "Real NPS $-$ Gaussian grain"), ("equiv_nps-proj0.1", "Real NPS $-$ projection"), ("white-nps", "White $-$ real NPS")):
     L.append(f"{lab} & " + " & ".join(txv(s, kind, m) for s in ("all", "soft", "sharp") for m in ("S3", "S4")) + " \\\\\n")
 L.append("\\botrule\n\\end{tabular*}\n\\end{sidewaystable}\n")
-# ---- review experiments (analysis_plans/review_prespec.md)
+# ---- review experiments (lung-nodule-detector-analysis-plans/plans_original/review_prespec.md)
 def vv(k, loss=False):
     return f"{V[k + '.loss']} [{V[k + '.losslo']}, {V[k + '.losshi']}]" if loss else f"{V[k + '.est']} [{V[k + '.lo']}, {V[k + '.hi']}]"
 if (RV / "inplane_contrasts.csv").exists():

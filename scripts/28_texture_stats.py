@@ -1,4 +1,4 @@
-"""Noise-texture test statistics, exactly as pre-specified in analysis_plans/texture_test_prespec.md (hash in analysis/p2_texture/PRESPEC_SHA256.txt).
+"""Noise-texture test statistics, exactly as pre-specified in lung-nodule-detector-analysis-plans/plans_original/texture_test_prespec.md (hash in analysis/p2_texture/PRESPEC_SHA256.txt).
 
     python scripts/28_texture_stats.py
 

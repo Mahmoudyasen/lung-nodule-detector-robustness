@@ -1,4 +1,4 @@
-"""Review experiment R1 (analysis_plans/review_prespec.md): in-plane-only Gaussian blur, S3 vs S4, LUNA16 folds 0-3.
+"""Review experiment R1 (lung-nodule-detector-analysis-plans/plans_original/review_prespec.md): in-plane-only Gaussian blur, S3 vs S4, LUNA16 folds 0-3.
 
     python scripts/31_inplane_blur_e1.py --check                 # known answer: blur_xy with z added = the E1 3D blur
     python scripts/31_inplane_blur_e1.py [--folds 0 1 2 3]        # xy1.0, xy1.5 (+ xycal once the NLST calibration exists)

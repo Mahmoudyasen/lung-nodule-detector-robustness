@@ -1,4 +1,4 @@
-"""Noise-texture test ( analysis_plans/texture_test_prespec.md): S3 vs S4 on the texture test scans
+"""Noise-texture test (lung-nodule-detector-analysis-plans/plans_original/texture_test_prespec.md): S3 vs S4 on the texture test scans
 (scripts/26_luna_texture.py), folds 0-3. Same inference code as scripts/23_projnoise_e1.py.
 
     python scripts/27_texture_e1.py --check          # known-answer: re-score one proj0.1 scan, compare with the stored candidates

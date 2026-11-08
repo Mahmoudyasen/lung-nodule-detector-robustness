@@ -1,4 +1,4 @@
-"""Noise-texture test ( analysis_plans/texture_test_prespec.md): measure the real noise power spectrum of the TCIA
+"""Noise-texture test (lung-nodule-detector-analysis-plans/plans_original/texture_test_prespec.md): measure the real noise power spectrum of the TCIA
 pairs in PHYSICAL frequency (cycles/mm), so it can be imposed on LUNA16 scans of any pixel spacing. ml env.
 
     python scripts/25_tcia_nps.py [--every 12] [--procs 8]

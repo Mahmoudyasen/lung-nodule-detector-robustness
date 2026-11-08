@@ -1,5 +1,5 @@
 #!/bin/bash
-# Review experiments R1-R4 (analysis_plans/review_prespec.md, hash in analysis/p2_review/PRESPEC_SHA256.txt), one job at a time:
+# Review experiments R1-R4 (lung-nodule-detector-analysis-plans/plans_original/review_prespec.md, hash in analysis/p2_review/PRESPEC_SHA256.txt), one job at a time:
 #   1-2  NLST real-kernel pairs: convert (CPU), kernel calibration (CPU)                                  [R3]
 #   3    in-plane blur xy1.0 / xy1.5 / xycal, folds 0-3 (GPU)                                              [R1]
 #   4-5  texture levels x0.5 and x2 (CPU generation on the raw-data disk, $LUNGCAD_NLST_HDD), inference folds 0-3 (GPU)           [R2]

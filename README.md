@@ -6,11 +6,17 @@ sampling, initialisation and schedule: **S3** without and **S4** with dose/blur 
 identical inputs under image-domain noise (white and spatially correlated), Gaussian blur and unsharp masking,
 projection-domain noise calibrated on the TCIA LDCT-and-Projection-data pairs, and stationary noise with the measured
 real noise power spectrum (noise-texture test). The pairs are also compared on paired full- and 10 %-dose images of the
-same patients (TCIA), and described on a stratified sample of NLST screening scans. All statistics follow a pre-specified
-plan: paired bootstrap over scans or patients, 10,000 common resamples, and Holm correction within each primary family.
+same patients (TCIA), and described on a stratified sample of NLST screening scans. All statistics follow pre-specified
+plans: paired bootstrap over scans or patients, 10,000 common resamples, and Holm correction within each primary family.
 
-Paper: *[title and DOI to be added on publication]*. Derived results (candidate lists, calibration outputs, statistics):
-*[Zenodo DOI to be added]*.
+Paper: *How fragile a deep lung-nodule detector appears depends on the texture of simulated noise: a paired evaluation of
+training-time augmentation*, Mahmoud S. Yaseen and Ali Okatan [journal and DOI to be added on publication].
+
+Pre-specified analysis plans, notes on deviations and SHA-256 hash records:
+<https://github.com/Mahmoudyasen/lung-nodule-detector-analysis-plans> (cited in the code as
+`lung-nodule-detector-analysis-plans/plans_original/<file>`). Derived results (candidate lists, calibration outputs,
+statistics) are available from the corresponding author on reasonable request; NLST-derived data are shared subject to
+the NLST data-use conditions.
 
 ## Environments
 
@@ -58,10 +64,10 @@ The expected layout of `LUNGCAD_DATA` (LUNA16 `.mhd` files, lung masks, index) i
 | 9. Projection noise, NLST sample | `bash scripts/24_p2_queue.sh` (runs `17_luna_projnoise.py`, `23_projnoise_e1.py`, `20_nlst_native_sample.py`, `18_nlst_descriptive.py`; NLST inventory and conversion first: `10_nlst_inventory.sh`, `11_nlst_convert.sh`) | projection-noise scans and candidates; NLST candidates |
 | 10. TCIA inference | `python scripts/22_tcia_e1.py` | TCIA contrasts (F3) |
 | 11. Main statistics | `python scripts/p2_e1_final.py` | F1/F2 tables (`analysis/e1_dose_pooled/final_*.csv`) |
-| 12. Noise-texture test | `python scripts/25_tcia_nps.py`; `python scripts/26_luna_texture.py --selftest`, then without `--selftest`; `python scripts/27_texture_e1.py --check`, then without `--check`; `python scripts/28_texture_stats.py` | F4 (pre-specified in `analysis_plans/texture_test_prespec.md`) |
+| 12. Noise-texture test | `python scripts/25_tcia_nps.py`; `python scripts/26_luna_texture.py --selftest`, then without `--selftest`; `python scripts/27_texture_e1.py --check`, then without `--check`; `python scripts/28_texture_stats.py` | F4 (pre-specified in `plans_original/texture_test_prespec.md` of the analysis-plans repository) |
 | 13. Secondary analyses | `python scripts/29_p2_secondary.py`; `python scripts/p2_nlst_analysis.py`; `python scripts/p2_nlst_figure.py` | kernel/vendor subsets, sensitivity analysis, NLST |
 | 14. Missed-nodule review | `python scripts/e5_miss_review.py`; `python scripts/e5b_miss_low_threshold.py` | Supplementary table of misses |
-| 15. Review experiments (in-plane blur, noise levels, NLST kernel pairs, second seed) | `bash scripts/34_p2_review_queue.sh` (runs `30_nlst_kernel_pairs.py`, `31_inplane_blur_e1.py`, `26_luna_texture.py --factor`, `27_texture_e1.py --factor`, model training with seed 1, `33_seed1_eval.py`); then `python scripts/32_review_stats.py` with `inplane`, `levels`, `levelskernel`, `nlst`, `nlstvendor`, `nlstthr`, `seed` | F5-F7 and the seed analysis (pre-specified in `analysis_plans/review_prespec.md`; later additions in `analysis_plans/review_prespec_NOTES.md`) |
+| 15. Review experiments (in-plane blur, noise levels, NLST kernel pairs, second seed) | `bash scripts/34_p2_review_queue.sh` (runs `30_nlst_kernel_pairs.py`, `31_inplane_blur_e1.py`, `26_luna_texture.py --factor`, `27_texture_e1.py --factor`, model training with seed 1, `33_seed1_eval.py`); then `python scripts/32_review_stats.py` with `inplane`, `levels`, `levelskernel`, `nlst`, `nlstvendor`, `nlstthr`, `seed` | F5-F7 and the seed analysis (pre-specified in `plans_original/review_prespec.md` of the analysis-plans repository; later additions in `plans_original/review_prespec_NOTES.md` of the analysis-plans repository) |
 | 16. Manuscript numbers and figures | `python paper/make_numbers.py`; `python paper/make_figures.py` | `numbers.tex`, figures |
 
 Statistical helpers (paired bootstrap with common resamples, Holm) are in `scripts/p2_stats.py`; run it directly for its

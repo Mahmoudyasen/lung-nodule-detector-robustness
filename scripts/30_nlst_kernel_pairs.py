@@ -1,4 +1,4 @@
-"""Review experiment R3 (analysis_plans/review_prespec.md): real reconstruction kernels in NLST. Two reconstructions (soft, sharp)
+"""Review experiment R3 (lung-nodule-detector-analysis-plans/plans_original/review_prespec.md): real reconstruction kernels in NLST. Two reconstructions (soft, sharp)
 of the same acquisition, converted to detector spacing with one crop, scored by all eight fold models.
 
     python scripts/30_nlst_kernel_pairs.py select              # fixed sample (seed 0, 125 exams per vendor)

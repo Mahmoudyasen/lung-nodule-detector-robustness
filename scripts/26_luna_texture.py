@@ -1,4 +1,4 @@
-"""Noise-texture test ( analysis_plans/texture_test_prespec.md): LUNA16 test scans of folds 0-3 with stationary
+"""Noise-texture test (lung-nodule-detector-analysis-plans/plans_original/texture_test_prespec.md): LUNA16 test scans of folds 0-3 with stationary
 image-domain noise of three textures, at the per-scan level of the projection-domain noise at 10 % dose. ml env.
 
     python scripts/26_luna_texture.py --selftest            # known-answer checks (NPS shape, identity), no output volumes
@@ -13,7 +13,7 @@ unchanged S2 preprocessing with the same LUNA16 lung mask; the crop is checked a
 Level: added SD over the preprocessed crop (noisy - clean archive) matched to the scan's projnoise a0.1
 noise_sd_added_hu, by two passes (pass 2 rescales by target / pass-1 SD); |error| <= 3 % expected, recorded per scan.
 Output: <data>/luna16/texture/<cond>/subset<k>/<uid>.{lz4,json}. Resumable.
-Review experiment R2 (analysis_plans/review_prespec.md): --factor F scales the per-scan target (same noise fields and seeds) and writes
+Review experiment R2 (lung-nodule-detector-analysis-plans/plans_original/review_prespec.md): --factor F scales the per-scan target (same noise fields and seeds) and writes
 <root>/<cond>_x<F>/...; --root sets the output root (default: the factor-1 location above).
 """
 from __future__ import annotations
