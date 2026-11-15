@@ -9,8 +9,7 @@ real noise power spectrum (noise-texture test). The pairs are also compared on p
 same patients (TCIA), and described on a stratified sample of NLST screening scans. All statistics follow pre-specified
 plans: paired bootstrap over scans or patients, 10,000 common resamples, and Holm correction within each primary family.
 
-Paper: *How fragile a deep lung-nodule detector appears depends on the texture of simulated noise: a paired evaluation of
-training-time augmentation*, Mahmoud S. Yaseen and Ali Okatan [journal and DOI to be added on publication].
+Paper: *At equal level, simulated noise texture strongly affects how fragile a deep lung-nodule detector appears, with or without training-time augmentation*, Mahmoud S. Yaseen and Ali Okatan [journal and DOI to be added on publication].
 
 Pre-specified analysis plans, notes on deviations and SHA-256 hash records:
 <https://github.com/Mahmoudyasen/lung-nodule-detector-analysis-plans> (cited in the code as
