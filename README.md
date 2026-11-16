@@ -82,6 +82,8 @@ self-checks. The FROC/CPM scorer (`lungcad/eval/froc.py`) reproduces the officia
   Fold 0 was retrained with seed 1 after the fix (S3 and S4); the pre-specified sensitivity analysis that replaces the
   fold-0 S3 by its retrain is in `scripts/32_review_stats.py seed`.
 - Scripts that were run in the separate `astra` environment say so in their docstring.
+- This repository was re-created on 16 November 2026 because of technical issues. The full commit history was preserved
+  unchanged, and the releases were re-published with their original tags and notes.
 
 ## Licence
 
