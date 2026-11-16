@@ -1,6 +1,6 @@
 # lung-nodule-detector-robustness
 
-Code for a paired evaluation of training-time dose and blur (simulated kernel) augmentation for a 3D RetinaNet
+The Code for a paired evaluation of training-time dose and blur (simulated kernel) augmentation for a 3D RetinaNet
 lung-nodule detector trained on LUNA16. Two detectors are trained per cross-validation fold with identical data,
 sampling, initialisation and schedule: **S3** without and **S4** with dose/blur augmentation. Each pair is compared on
 identical inputs under image-domain noise (white and spatially correlated), Gaussian blur and unsharp masking,
